@@ -18,6 +18,7 @@ to generate this file without the comments in this block.
   , "psci-support"
   , "react-basic-hooks"
   , "react-basic-dom"
+  , "routing"
   , "exceptions"
   , "maybe"
   , "web-dom"
