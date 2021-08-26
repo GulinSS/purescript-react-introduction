@@ -3,3 +3,6 @@ node_modules
 .spago
 .purs-repl
 output
+dist-spago
+dist-parcel
+.cache
