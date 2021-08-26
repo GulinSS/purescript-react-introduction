@@ -3,12 +3,15 @@ module App where
 import Prelude
 
 import React.Basic.Hooks as Hooks
-import React.Basic.Hooks (Component, component, fragment)
-import React.Basic.DOM as R
+import React.Basic.Hooks (Component, component, (/\))
+import RouterContext (mkRouterContext)
+import Router (mkRouter)
 
 mkApp :: Component Unit
 mkApp = do
-  component "App" $ const $ Hooks.do
-    pure $ fragment [
-      R.text "Hello world!"
-    ]
+  routerContextComponent /\ routerContext <- mkRouterContext
+  router <- mkRouter routerContext
+  component "App" \props -> Hooks.do
+    pure $ routerContextComponent [
+      router unit
+     ]
