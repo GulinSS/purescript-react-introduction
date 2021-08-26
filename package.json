@@ -2,19 +2,23 @@
   "name": "purescript-react-introduction",
   "version": "1.0.0",
   "scripts": {
+    "serve": "stmux -M -- [ [ \"npm run spago:watch\" ] .. [ \"npm run parcel:serve\" ] ]",
+    "parcel:serve": "parcel serve assets/index.html --out-dir dist-parcel",
     "bundle:spago": "spago bundle-app --main Main --to dist-spago/app.js",
     "bundle:parcel": "parcel build assets/index.html --out-dir dist-parcel",
     "bundle": "npm run bundle:spago && npm run bundle:parcel",
     "spago:_init": "spago init",
     "spago:repl": "spago repl",
     "spago:build": "spago build",
+    "spago:watch": "spago bundle-app --watch --main Main --to dist-spago/app.js",
     "postinstall": "spago install",
     "test": "spago test"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "purescript": "^0.14.1",
-    "spago": "^0.20.3"
+    "spago": "^0.20.3",
+    "stmux": "^1.8.1"
   },
   "dependencies": {
     "react": "^17.0.2",
